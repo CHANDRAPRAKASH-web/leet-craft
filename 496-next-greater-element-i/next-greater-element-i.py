@@ -4,14 +4,20 @@ class Solution:
         for i,n in enumerate(nums1):
             a[n]=i
         res=[-1]*(len(nums1))
+        stk=[]
         for i in range(len(nums2)):
             cur=nums2[i]
+            while stk and cur>stk[-1]:
+                val=stk.pop()
+                idx=a[val]
+                res[idx]=cur
             if cur in a:
-                for j in range(i+1,len(nums2)):
-                    if nums2[j]>nums2[i]:
-                        res[a[cur]]=nums2[j]
-                        break
+                stk.append(cur)
         return res
+
+      
+
+       
 
 
        
