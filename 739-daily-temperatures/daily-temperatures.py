@@ -4,10 +4,11 @@ class Solution:
         stk=[]
         res=[0]*n
     
-        for i in range(n):
-            while stk and nums[stk[-1]]<nums[i]:
+        for i in range(n-1,-1,-1):
+            while stk and nums[stk[-1]]<=nums[i]:
                 idx=stk.pop()
-                res[idx]=i-idx
+            if stk:
+                res[i]=stk[-1]-i
             stk.append(i)
         return res
         
