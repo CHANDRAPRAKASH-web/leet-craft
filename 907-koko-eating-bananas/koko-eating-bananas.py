@@ -7,7 +7,7 @@ class Solution:
             mid=(l+r)//2
             time=0
             for i in range(len(nums)):
-                time+=((nums[i]-1)//mid)+1
+                time+=math.ceil(nums[i]/mid)
             if time<=h:
                 res=min(res,mid)
                 r=mid-1
