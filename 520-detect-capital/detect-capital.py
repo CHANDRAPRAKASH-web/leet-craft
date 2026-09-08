@@ -1,11 +1,8 @@
 class Solution:
     def detectCapitalUse(self, word: str) -> bool:
-        fc=True
-        if ord('A')<=ord(word[0])<=ord('Z'):
-            for i in range(1,len(word)):
-                if ord('A')<=ord(word[i])<=ord('Z'):
-                    fc=False
-        else:
-            fc=False
-        return all(ord('A')<=ord(i)<=ord('Z') for i in word) or all(ord('a')<=ord(i)<=ord('z') for i in word) or fc
+        upper=0
+        for i in word:
+            if ord('A')<=ord(i)<=ord('Z'):
+                upper+=1
+        return upper==0 or upper==len(word) or (upper==1 and ord('A')<=ord(word[0])<=ord('Z'))
         
