@@ -3,7 +3,8 @@ class Solution:
         l=min(nums)
         r=max(nums)
         res=float('inf')
-        a=set(nums)
+        if m * k > len(nums):
+            return -1
         def check(n):
             count=0
             cnt=0
