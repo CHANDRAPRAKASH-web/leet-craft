@@ -9,10 +9,11 @@ class Solution:
             for i in nums:
                 if i<=n:
                     cnt+=1
+                    if cnt==k:
+                        count+=1
+                        cnt=0
                 else:
-                    count+=(cnt//k)
                     cnt=0
-            count+=(cnt//k)
             return count
         while l<=r:
             mid=(l+r)//2
