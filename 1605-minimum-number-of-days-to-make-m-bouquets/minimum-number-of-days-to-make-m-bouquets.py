@@ -3,6 +3,7 @@ class Solution:
         l=min(nums)
         r=max(nums)
         res=float('inf')
+        a=set(nums)
         def check(n):
             count=0
             cnt=0
