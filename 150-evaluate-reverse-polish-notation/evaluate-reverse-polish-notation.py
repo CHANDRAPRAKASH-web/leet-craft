@@ -9,14 +9,12 @@ class Solution:
                 c=stk.pop()
                 b=stk.pop()
                 if i=='+':
-                    stk.append(int(b)+int(c))
+                    stk.append(b+c)
                 elif i=='-':
-                    stk.append(int(b)-int(c))
+                    stk.append(b-c)
                 elif i=='*':
-                    stk.append(int(b)*int(c))
+                    stk.append(b*c)
                 else:
-                    b=int(b)
-                    c=int(c)
                     stk.append(int(b/c))
         return stk[-1]
     
