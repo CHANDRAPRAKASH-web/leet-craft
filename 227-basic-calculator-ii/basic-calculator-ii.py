@@ -4,7 +4,7 @@ class Solution:
         cur_operation='+'
         res=0
         cur=0
-        prev=0
+        stack=[]
         while i<len(s):
             if s[i].isdigit():
                 while i<len(s) and s[i].isdigit():
@@ -12,25 +12,20 @@ class Solution:
                         i+=1
                 i-=1
                 if cur_operation=='+':
-                    res+=cur
-                    prev=cur
+                    stack.append(cur)
+                   
                 elif cur_operation=='-':
-                    res-=cur
-                    prev=-cur
+                    stack.append(-cur)
                 elif cur_operation=='*':
-                    res-=prev
-                    res+=(prev*cur)
-                    prev=prev*cur
+                    stack.append(stack.pop()*cur)
                 elif cur_operation=='/':
-                    res-=prev
-                    res+=int(prev/cur)
-                    prev=int(prev/cur)
+                    stack.append(int(stack.pop()/cur))
             elif s[i]!=" ":
                 cur_operation=s[i]
                 
             cur=0
             i+=1
-        return res
+        return sum(stack)
 
 
         
