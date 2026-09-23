@@ -9,7 +9,7 @@ class Solution:
             return -1
         for r in range(n):
             prefix_sum+=nums[r]
-            while prefix_sum>target and l<=r:
+            while prefix_sum>target:
                 prefix_sum-=nums[l]
                 l+=1
             if prefix_sum==target:
