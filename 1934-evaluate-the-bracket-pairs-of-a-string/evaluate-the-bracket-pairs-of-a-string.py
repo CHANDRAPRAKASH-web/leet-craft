@@ -5,17 +5,17 @@ class Solution:
             a[i[0]]=i[1]
         start=False
         curr=""
-        res=""
+        res=[]
         for i in s:
             if i=='(':
                 start=True
             elif i==')':
                 v=a.get(curr,'?') 
-                res+=v
+                res.append(v)
                 curr=''
                 start=False
             elif start==False:
-                res+=i
+                res.append(i)
             elif start==True:
                 curr+=i
-        return res       
+        return "".join(res)
