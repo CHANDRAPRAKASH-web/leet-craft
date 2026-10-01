@@ -1,23 +1,15 @@
 class Solution:
     def isValid(self, s: str) -> bool:
-        hashmap={')':'(','}':'{',']':'['}
+        map={')':'(',']':'[','}':'{'}
         stk=[]
         for i in s:
-            if i not in hashmap:
+            if i not in map:
                 stk.append(i)
-
             else:
                 if not stk:
                     return False
                 else:
-                    popped=stk.pop()
-                    if hashmap[i]!=popped:
+                    a=stk.pop()
+                    if a!=map[i]:
                         return False
-
         return not stk
-
-
-        
-                        
-
-        
